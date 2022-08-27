@@ -3,6 +3,7 @@ import { ProductModel } from "../repository/product.model";
 import { ProductRepository } from "../repository/product.repository";
 import { AddProductUseCase } from "../usecase/add-product/add-product";
 import { ProductAdmFacade } from "./product-adm-facade";
+import { ProductAdmFacadeFactory } from "../factory/facade.factory";
 
 describe("Product Adm Facade Test", function () {
   let sequelize: Sequelize;
@@ -24,9 +25,7 @@ describe("Product Adm Facade Test", function () {
   });
 
   it("Should create a product", async () => {
-    const repository = new ProductRepository();
-    const useCase = new AddProductUseCase(repository);
-    const facade = new ProductAdmFacade(useCase, undefined);
+    const facade = ProductAdmFacadeFactory.create();
 
     const input = {
       id: "1",
