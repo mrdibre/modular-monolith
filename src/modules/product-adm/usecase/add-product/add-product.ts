@@ -2,8 +2,9 @@ import { AddProductInputDTO, AddProductOutputDTO } from "./add-product.dto";
 import { Product } from "../../domain/product.entity";
 import { Id } from "../../../@shared/domain/value-object/id.value-object";
 import { ProductGateway } from "../../gateway/product.gateway";
+import { UseCaseInterface } from "../../../@shared/usecase/usecase.interface";
 
-export class AddProductUseCase {
+export class AddProductUseCase implements UseCaseInterface {
   constructor(private readonly productGateway: ProductGateway) {}
 
   async execute(input: AddProductInputDTO): Promise<AddProductOutputDTO> {
