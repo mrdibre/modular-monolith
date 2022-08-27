@@ -9,7 +9,7 @@ export class AddProductUseCase implements UseCaseInterface {
 
   async execute(input: AddProductInputDTO): Promise<AddProductOutputDTO> {
     const product = new Product({
-      id: new Id(),
+      id: new Id(input.id),
       name: input.name,
       stock: input.stock,
       description: input.description,

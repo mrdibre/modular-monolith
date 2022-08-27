@@ -1,4 +1,5 @@
 export interface AddProductInputDTO {
+  id?: string;
   name: string;
   description: string;
   purchasePrice: number;
